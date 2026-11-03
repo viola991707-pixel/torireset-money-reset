@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F7F2EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1816" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Money Reset">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2034%2034%22%3E%3Ccircle%20cx%3D%2217%22%20cy%3D%2217%22%20r%3D%2217%22%20fill%3D%22%23F6E3D8%22%2F%3E%3Cpath%20d%3D%22M17%2026c-5.5%200-8.5-4-8.5-8.5%205.5%200%208.5%202.2%208.5%208.5Zm0%200c0-5.6%203-8.6%208.5-8.6%200%204.7-3.2%208.6-8.5%208.6Z%22%20fill%3D%22%23A8461F%22%2F%3E%3Cpath%20d%3D%22M17%2026v-9%22%20stroke%3D%22%23A8461F%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<title>Money Reset by ToriReset</title>
+<style>
+:root{
+  --bg:#F7F2EA; --card:#FFFDF9; --ink:#2B2623; --muted:#6F655C; --line:#E8DFD2;
+  --accent:#A8461F; --accent-ink:#FFFFFF; --accent-soft:#F6E3D8;
+  --sage:#3E6B3E; --sage-soft:#E4EEE0; --amber:#8A5A00; --amber-soft:#FBEBC8;
+  --shadow:0 1px 2px rgba(60,40,20,.06),0 4px 14px rgba(60,40,20,.06);
+  --r:16px; color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1B1816; --card:#26211E; --ink:#F1EBE3; --muted:#B0A599; --line:#3A332E;
+    --accent:#E58A63; --accent-ink:#1B1816; --accent-soft:#3B2A22;
+    --sage:#9CC39B; --sage-soft:#26332A; --amber:#F0BE5A; --amber-soft:#3A2F14;
+    --shadow:0 1px 2px rgba(0,0,0,.4); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1B1816; --card:#26211E; --ink:#F1EBE3; --muted:#B0A599; --line:#3A332E;
+  --accent:#E58A63; --accent-ink:#1B1816; --accent-soft:#3B2A22;
+  --sage:#9CC39B; --sage-soft:#26332A; --amber:#F0BE5A; --amber-soft:#3A2F14;
+  --shadow:0 1px 2px rgba(0,0,0,.4); color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100vh;padding-bottom:84px}
+h1,h2,h3{line-height:1.2;margin:0}
+h1{font-size:1.15rem;font-weight:650}
+h2{font-size:1.05rem;font-weight:650;margin-bottom:.5rem}
+h3{font-size:.95rem;font-weight:650}
+p{margin:.35rem 0}
+a{color:var(--accent)}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:10px;min-height:56px}
+header.top .brand{flex:1;min-width:0}
+header.top .brand small{display:block;color:var(--muted);font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+main.wrap{padding-top:18px}
+h1,h2,.big,.hero .label{font-family:ui-rounded,"SF Pro Rounded","Nunito","Segoe UI",system-ui,sans-serif}
+header.top .logo{width:34px;height:34px;flex:none}
+.hero{background:linear-gradient(145deg,var(--accent-soft) 0%,var(--card) 62%);padding:20px 18px 14px}
+.hero.amber{background:var(--amber-soft)}
+.hero .big{font-size:3.4rem;margin:.35rem 0 .1rem}
+.cents{font-size:.45em;font-weight:650;letter-spacing:0;opacity:.7;vertical-align:.55em;margin-left:1px}
+.herosub{margin:.25rem 0 .5rem;color:var(--muted)}
+.card.focus{border-left:5px solid var(--accent);padding-left:14px}
+.card.focus h2{font-size:1.2rem;margin:.3rem 0 .2rem}
+.billrow{display:flex;align-items:center;gaD,²H†@LƒÑÚ]™H]H˜[YK‰ÎÈÛÛœİœHË›™]Ô›Ùš[JÈ˜[YKİ\œ™[˜ŞNˆ™™Ù]
+	Øİ\œ™[˜ŞIÊHJNÈËœ›Ùš[\Ëœ\Ú
+œ
+NÈË˜Xİ]™RYHœšYÈHœÈİXˆH[ÈšY]ÈH	İÙ^IÎÈØ]™J˜[ÙJNÈ™[™\Š
+NÈÚ^˜\™
+
+NÈ™]\›ˆ˜[ÙNÈHJNÈKˆ	Ü›Ùš[KYY]	Ê
+HÈÛÛœİHËœ›Ùš[\Ë™š[™
+
+
+HOˆšYOOH™]\Ù]šY
+NÈ[Ù[
+	Ô™[˜[YHYÙ]	Ë›
+	Ó˜[YIË	Û˜[YIË›˜[YKÈX^ˆÌJKÈİX›Z]ˆ	ÔØ]™IË^˜NˆËœ›Ùš[\Ë›[™İˆHÈ	Ï]Ûˆ\OH˜]ÛˆˆÛ\ÜÏH™[™Ù\ˆˆ]KXXİHœ›Ùš[KY[ˆ]KZYH‰È
+ÈšY
+È	È‘[]OØ]Û‰Èˆ	ÉËÛ”İX›Z]
+™
+HÈ›˜[YHHİš[™Ê™™Ù]
+	Û˜[YIÊH	ÉÊKš[J
+H›˜[YNÈØ]™J˜[ÙJNÈ™[™\Š
+NÈHJNÈKˆ	Ü›Ùš[KY[	Ê
+HÈÛÛœİYH™]\Ù]šYÈÛÜÙS[Ù[
+
+NÈÛÛ™š\›S[Ù[
+	Ñ[]H\ÈYÙ]ÉË	Ñ]™\][™È[ˆ]\È\˜\ÙYœ›ÛH\È]šXÙKˆİÛ›ØYH˜XÚİ\š\œİYˆ[œİ\™K‰Ë	Ñ[]IË
+
+HOˆÈËœ›Ùš[\ÈHËœ›Ùš[\Ë™š[\Š
+
+HOˆšYOOHY
+NÈYˆ
+TËœ›Ùš[\Ë›[™İ
+HÈËœ›Ùš[\Ëœ\Ú
+Ë›™]Ô›Ùš[JßJJNÈHYˆ
+TËœ›Ùš[\ËœÛÛYJ
+
+HOˆšYOOHË˜Xİ]™RY
+JHË˜Xİ]™RYHËœ›Ùš[\ÖÌKšYÈHXİ]™J
+NÈØ]™J˜[ÙJNÈ™[™\Š
+NÈJNÈKˆ\˜\ÙJ
+HÈÛÛ™š\›S[Ù[
+	Ñ\˜\ÙH\ÈYÙ]ÉË	Ğ[[X™\œÈ[ˆ	›][ÎÉÈ
+È\ØÊ›˜[YJH
+È	Éœ™][ÎÈ\™H\˜\ÙYˆ\ÈØ[››İ™H[™Û™K‰Ë	Ñ\˜\ÙIË
+
+HOˆÈÛÛœİˆHË›™]Ô›Ùš[JÈ˜[YNˆ›˜[YKİ\œ™[˜ŞNˆ˜İ\œ™[˜ŞK]Nˆ]HJNÈ‹šYHšYÈÛÛœİHHËœ›Ùš[\Ë™š[™[™^
+
+
+HOˆšYOOHšY
+NÈËœ›Ùš[\ÖÚWHHÈHÈË˜Ú[™Ù\ÈHÈİXˆH[ÈšY]ÈH	İÙ^IÎÈØ]™J˜[ÙJNÈ™[™\Š
+NÈÚ^˜\™
+
+NÈJNÈKˆNÂˆÛÛœİ“Ô“HHÂˆ]ZXÚÊŠHÂˆÛÛœİ[œ]H‹™[[Y[ËœNÈÛÛœİˆHËœ\œÙT]ZXÚÊ[œ]˜[YJNÂˆYˆ
+\ŠHÈØ\İ
+	Õ\H[ˆ[[İ[š\œİZÙH8 'LˆÛÙ™™Yx 'K‰ÊNÈ™]\›ÈBˆËÈH^˜HÜ[ÛœÈ›Û]Ø^HYØZ[ˆY\ˆÙÙÚ[™ÎÈ^HÜ[ˆÚ[ˆHšY[\È\YˆÛÛœİˆH‹™[[Y[Ë™]HÈ‹™[[Y[Ë™]K˜[YHˆ	ÉÎÂˆYˆ
+\Ñ]\™JŠJHÈØ\İ
+•UT‘WÓTÑÊNÈ™]\›ÈBˆÛÛœİ]HH\Ñ]JŠHÈˆˆÙ^J
+NÂˆÛÛœİ›İHH
+‹™[[Y[Ë››İH	‰ˆ‹™[[Y[Ë››İK˜[YKš[J
+JH‹››İNÈËÈH•Ú]Ø\È]Èˆ›ŞÚ[œÈİ™\ˆÛÜ™È\Y™\ÚYHH[[İ[ˆÙ\Ëœ]ZXÚÓÜ[ˆH˜[ÙNÂˆYˆ
+‹šÚ[™OOH	Ú[˜ÛÛYIÊHY[JËš[˜ÛÛYQ[J]K‹˜[[İ[›İH	Ó[Û™^H[‰ÊK›]
+‹˜[[İ[
+H
+È	ÈYY	ÊNÂˆ[ÙHÈÛÛœİØ]HÙ\Ëœ]ZXÚĞØ]Ë™İY\ÜĞØ]
+›İJH	Óİ\‰ÎÈÙ\Ëœ]ZXÚĞØ]H[ÈY[JËœÜ[™[J]K‹˜[[İ[Ø]›İJK›]
+‹˜[[İ[
+H
+È
+›İHÈ	È0­È	È
+È›İHˆ	È0­È	È
+ÈØ]
+H
+È	ÈÙÙÙY	ÊNÈBˆKˆ[\
+ŠHÈÛÛœİHİš[™Ê‹™[[Y[Ë˜[YH	ÉÊKš[J
+NÈYˆ
+]
+H™]\›È™[\œ\Ú
+ÈYˆËZY
+
+K^ˆœÛXÙJÌ
+K]ˆÙ^J
+HJNÈØ]™J˜[ÙJNÈÙ\Ë™[\Ü[ˆHYNÈ™[™\Š
+NÈÛÛœİHH	
+	ÈÙ[\›Ş[œ]Û˜[YO]IÊNÈYˆ
+JHK™›Øİ\Ê
+NÈKˆÙ][™ÜÊŠHÂˆÛÛœİHH‹™[[Y[ÎÈ]HHİš[™ÊK]K˜[YH	ÉÊKš[J
+H	Ó^HØ[H[Û™^H[‰ÎÈ˜İ\œ™[˜ŞHHK˜İ\œ™[˜ŞK˜[YNÈË[YHHK[YK˜[YNÈœÚ[\HHKœÚ[\K˜ÚXÚÙYÂˆØ]™J˜[ÙJNÈ™[™\Š
+NÈØ\İ
+	ÔØ]™Y	ÊNÂˆKˆNÂ‚ˆÊˆKKKKKKKKKHÚ\š[™ÈKKKKKKKKKH
+‹ÂˆËÈHØ[YH[›™\ˆÜ[ˆ[ˆHÙXÛÛ™XˆXÚÈ\]ÈÚ[™Ù\È[œİXYÙˆİ™\Üš][™È[HÛˆH™^Ø]™Bˆ[˜İ[ÛˆŞ[˜Ñœ›ÛSİ\•XŠ
+HÂˆ]˜]ÈH[ÈHÈ˜]ÈHØØ[İÜ˜YÙK™Ù]][JÑVJNÈHØ]Ú
+JHÈ™]\›ÈBˆYˆ
+\˜]ÊH™]\›ÂˆHÈÈHË˜[Y]P\]J”ÓÓ‹œ\œÙJ˜]ÊJNÈHXİ]™J
+NÈÙ\ËœŞ[˜Ô[™[™ÈH˜[ÙNÈ™[™\Š
+NÈØ\İ
+	Õ\]Yœ›ÛH[›İ\ˆX‰ÊNÈHØ]Ú
+JHÈÊˆÙY\Ú]\ÈXˆ\È
+‹ÈBˆBˆÚ[™İË˜Y]™[\İ[™\Š	ÜİÜ˜YÙIË
+JHOˆÈYˆ
+KšÙ^HOOHÑVJH™]\›ÈYˆ
+	
+	ÈÛ[Ù[›Ûİ	ÊK™š\œİÚ[
+HÙ\ËœŞ[˜Ô[™[™ÈHYNÈ[ÙHŞ[˜Ñœ›ÛSİ\•XŠ
+NÈJNÂˆØİ[Y[˜Y]™[\İ[™\Š	Ù›Øİ\Ú[‰Ë
+JHOˆÈÛÛœİ[HK\™Ù]ÈYˆ
+[	‰ˆ[˜ÛÜÙ\İ	‰ˆ[˜ÛÜÙ\İ
+	ËœÚY]	ÊH	‰ˆ[œØÜ›Û[ÕšY]ÊHÙ][Y[İ]
+
+
+HOˆÈHÈ[œØÜ›Û[ÕšY]ÊÈ›ØÚÎˆ	ØÙ[\‰ÈJNÈHØ]Ú
+ÊHÈÊˆYÛ›Ü™H
+‹ÈHKÌ
+NÈJNÂˆËÈHš\ÚX›H\™XHÚš[šÜÈÚ[ˆHÙ^X›Ø\™Ü[œÎˆÙY\HÚY][œÚYHÚ]\ÈXİX[Hš\ÚX›BˆÛÛœİˆHÚ[™İËš\İX[šY]ÜÜÂˆYˆ
+ŠHÈÛÛœİš]H
+
+HOˆÈÛÛœİÈHØİ[Y[™Øİ[Y[[[Y[œİ[NÈËœÙ]›Ü\J	ËK]š	Ë‹šZYÚ
+È	Ü	ÊNÈËœÙ]›Ü\J	ËK]	Ë‹›Ù™œÙ]Ü
+È	Ü	ÊNÈNÈ‹˜Y]™[\İ[™\Š	Ü™\Ú^™IËš]
+NÈ‹˜Y]™[\İ[™\Š	ÜØÜ›Û	Ëš]
+NÈš]
+
+NÈBˆØİ[Y[˜Y]™[\İ[™\Š	Ù›Øİ\Ú[‰Ë
+JHOˆÈYˆ
+K\™Ù]	‰ˆK\™Ù]šYOOH	Ü]ZXÚÉÊHÈÙ\Ëœ]ZXÚÓÜ[ˆHYNÈÛÛœİHH	
+	ÈÜ]ZXÚÓ[Ü™IÊNÈYˆ
+JHKšY[ˆH˜[ÙNÈHJNÂˆØİ[Y[˜Y]™[\İ[™\Š	Û[İ\ÙYİÛ‰Ë
+JHOˆÂˆÙ\Ë™İÛ“ÛˆHK\™Ù]ÂˆËÈH\[]Ú\™H[ÙH›ÛÈHÜ[ÛœÈ]Ø^HYØZ[‹[›\ÜÈÛÛY][™È\È™Y[ˆ\YˆÛÛœİYˆHÙ\Ëœ]ZXÚÓÜ[ˆ	‰ˆ	
+	Ù›Ü›VÙ]KY›Ü›OHœ]ZXÚÈ—IÊNÂˆYˆ
+Yˆ	‰ˆ\Y‹˜ÛÛZ[œÊK\™Ù]
+H	‰ˆI
+	ÈÛ[Ù[›Ûİ	ÊK™š\œİÚ[	‰ˆ]ZXÚÑ[\JYŠJHÛÜÙT]ZXÚÊ˜[ÙJNÂˆKYJNÂˆØİ[Y[˜Y]™[\İ[™\Š	ØÛXÚÉË
+JHOˆÈÛÛœİHK\™Ù]˜ÛÜÙ\İ
+	ÖÙ]KXXİIÊNÈYˆ
+]
+H™]\›ÈÛÛœİ›ˆHPÕİ™]\Ù]˜XİNÈYˆ
+Y›ŠH™]\›ÈYˆ
+YÓ˜[YHOOH	ĞIÊHKœ™]™[Y˜][
+
+NÈ›ŠJNÈJNÂˆØİ[Y[˜Y]™[\İ[™\Š	ÜİX›Z]	Ë
+JHOˆÈÛÛœİˆHK\™Ù]˜ÛÜÙ\İ
+	Ù›Ü›VÙ]KY›Ü›WIÊNÈYˆ
+ŠHÈKœ™]™[Y˜][
+
+NÈ“Ô“VÙ‹™]\Ù]™›Ü›WJŠNÈHJNÂˆØİ[Y[˜Y]™[\İ[™\Š	ØÚ[™ÙIË
+JHOˆÂˆÛÛœİÙ^HHK\™Ù]	‰ˆK\™Ù]™]\Ù]	‰ˆK\™Ù]™]\Ù]œİ]ÂˆYˆ
+Ù^JHÂˆÛÛœİİHİ]İ]J
+NÂˆYˆ
+Ù^HOOH	Ü\š[Ù	È	‰ˆK\™Ù]˜[YHOOH	Øİ\İÛIÈ	‰ˆ\İ™œ›ÛJHÈÛÛœİˆHİ]]J
+NÈİ™œ›ÛHH‹™œ›ÛNÈİÈH‹ÎÈBˆİÚÙ^WHHK\™Ù]˜[YNÈ™[™\Š
+NÈ™]\›ÂˆBˆYˆ
+K\™Ù]	‰ˆK\™Ù]šYOOH	Ü™\İÜ™Qš[IÈ	‰ˆK\™Ù]™š[\È	‰ˆK\™Ù]™š[\ÖÌJHÂˆÛÛœİˆH™]Èš[T™XY\Š
+NÈ‹›Û›ØYH
+
+HOˆ™\İÜ™Qœ›ÛJİš[™Ê‹œ™\İ[
+JNÈ‹›Û™\œ›ÜˆH
+
+HOˆØ\İ
+	ĞÛİ[›İ™XY]š[K‰ÊNÈ‹œ™XY\Õ^
+K\™Ù]™š[\ÖÌJNÂˆBˆJNÂˆËÈÙY\Xˆ[œÚYH[ˆÜ[ˆÚY]ˆØİ[Y[˜Y]™[\İ[™\Š	ÚÙ^YİÛ‰Ë
+JHOˆÂˆYˆ
+KšÙ^HOOH	ÕX‰ÊH™]\›ÈÛÛœİÚHØİ[Y[œ]Y\TÙ[XİÜŠ	ÈÛ[Ù[›ÛİœÚY]	ÊNÈYˆ
+\Ú
+H™]\›ÂˆÛÛœİˆHË‹‹œÚœ]Y\TÙ[XİÜ[
+	Ú[œ]››İ
+İ\OZY[—JN››İ
+™\ØX›Y
+KÙ[Xİ^\™XK]Û››İ
+™\ØX›Y
+IÊWK™š[\Š
+
+HOˆ›Ù™œÙ]\™[OOH[
+NÈYˆ
+Y‹›[™İ
+H™]\›ÂˆÛÛœİš\œİH–ÌK\İH–Ù‹›[™İHWNÂˆYˆ
+KœÚYÙ^H	‰ˆ
+Øİ[Y[˜Xİ]™Q[[Y[OOHš\œİ\Ú˜ÛÛZ[œÊØİ[Y[˜Xİ]™Q[[Y[
+JJHÈKœ™]™[Y˜][
+
+NÈ\İ™›Øİ\Ê
+NÈBˆ[ÙHYˆ
+YKœÚYÙ^H	‰ˆ
+Øİ[Y[˜Xİ]™Q[[Y[OOH\İ\Ú˜ÛÛZ[œÊØİ[Y[˜Xİ]™Q[[Y[
+JJHÈKœ™]™[Y˜][
+
+NÈš\œİ™›Øİ\Ê
+NÈBˆJNÂˆØİ[Y[˜Y]™[\İ[™\Š	ÚÙ^YİÛ‰Ë
+JHOˆÈYˆ
+KšÙ^HOOH	Ñ\ØØ\IÊH™]\›ÈYˆ
+	
+	ÈÛ[Ù[›Ûİ	ÊK™š\œİÚ[
+HÛÜÙS[Ù[
+
+NÈ[ÙHYˆ
+Ù\Ëœ]ZXÚÓÜ[ŠHÛÜÙT]ZXÚÊYJNÈJNÂˆ	
+	Èİ[YP‰ÊK˜Y]™[\İ[™\Š	ØÛXÚÉË
+
+HOˆÈÛÛœİÜ™\ˆHÉØ]]ÉË	ÛYÚ	Ë	Ù\šÉ×NÈË[YHHÜ™\–ÊÜ™\‹š[™^ÙŠË[YH	Ø]]ÉÊH
+ÈJH	H×NÈØ]™J˜[ÙJNÈ™[™\Š
+NÈØ\İ
+È]]Îˆ	ĞÛÛÜœÈX]Ú[İ\ˆ]šXÙIËYÚˆ	ÔÛÙYÚ	Ë\šÎˆ	ÓZYšYÚ	ÈVÔË[YWJNÈJNÂˆ]\İ^HHÙ^J
+NÂˆØİ[Y[˜Y]™[\İ[™\Š	İš\ÚXš[]XÚ[™ÙIË
+
+HOˆÈYˆ
+YØİ[Y[šY[ˆ	‰ˆÙ^J
+HOOH\İ^JHÈ\İ^HHÙ^J
+NÈ™[™\Š
+NÈHJNÂˆHÈYˆ
+˜]šYØ]Ü‹œİÜ˜YÙH	‰ˆ˜]šYØ]Ü‹œİÜ˜YÙKœ\œÚ\İ
+H˜]šYØ]Ü‹œİÜ˜YÙKœ\œÚ\İ
+
+NÈHØ]Ú
+JHÈÊˆYÛ›Ü™H
+‹ÈB‚ˆÊˆKKKKKKKKKHİ\KKKKKKKKKH
+‹ÂˆÈHØY
+
+NÂˆYˆ
+TÊHÈÈHË›™]Ğ\]J
+NÈÛÛœİ^HË›XZÙQ^[\JÙ^J
+JNÈËœ›Ùš[\Ëœ\Ú
+^
+NÈË˜Xİ]™RYH^šYÈBˆHXİ]™J
+NÂˆÙ\Ëœ™]“Ü[™YHË›\İÜ[™YÈË›\İÜ[™YHÙ^J
+NÈØ]™J˜[ÙJNÂˆ™[™\Š
+NÂˆÚ[™İË—×Û[Û™^HHÈÙ]Ê
+HÈ™]\›ˆÎÈKÙ]
+
+HÈ™]\›ˆÈKÛÜ™NˆË™[™\ˆNÂŸJJ
+NÂ‚ÜØÜš\‚Ø›ÙO‚Ú[‚
