@@ -957,8 +957,7 @@ input[type=file]::file-selector-button{font:inherit;min-height:34px;padding:0 14
     if (P.setupDone || P.example) {
       const freq = C.frequent(P, t, 4);
       h += '<section class="card"><form data-form="quick" autocomplete="off"><label for="quick" style="margin-top:0">Log a spend</label><div class="row"><input id="quick" name="q" placeholder="Amount, e.g. 12.50" enterkeyhint="done" inputmode="text"><button class="primary" type="submit">Log</button></div>' +
-        '<div id="quickMore"' + (ses.quickOpen ? '' : ' hidden') + '><p class="hint">Start with + for money coming in, like &ldquo;+50 gift&rdquo;. Got a refund? Use Money in &rarr; Add one-off money &rarr; Refund.</p>' +
-        (freq.length ? '<p class="label" style="margin:10px 0 0">Log again</p><div class="chips" style="margin-top:6px">' + freq.map((m) => '<button type="button" class="chip" data-act="log-again" data-n="' + esc(m.note) + '" data-a="' + m.amt + '" data-c="' + esc(m.cat || '') + '">' + esc(m.note) + ' · ' + esc(fmt(m.amt)) + '</button>').join('') + '</div>' : '') +
+        '' + (freq.length ? '<p class="label" style="margin:12px 0 0">Log again</p><div class="chips" style="margin-top:6px">' + freq.map((m) => '<button type="button" class="chip" data-act="log-again" data-n="' + esc(m.note) + '" data-a="' + m.amt + '" data-c="' + esc(m.cat || '') + '">' + esc(m.note) + ' · ' + esc(fmt(m.amt)) + '</button>').join('') + '</div>' : '') + '<div id="quickMore"' + (ses.quickOpen ? '' : ' hidden') + '><p class="hint">Start with + for money coming in, like &ldquo;+50 gift&rdquo;. Got a refund? Use Money in &rarr; Add one-off money &rarr; Refund.</p>' +
         '<div class="chips">' + [5, 10, 20, 50].map((n) => '<button type="button" class="chip" data-act="chip" data-v="' + n + '">' + n + '</button>').join('') + '</div>' +
         '<label for="qnote">What was it? <span class="tag" style="font-weight:400">(optional)</span></label><input id="qnote" name="note" placeholder="coffee, groceries, a gift…" maxlength="60" enterkeyhint="done">' +
         '<p class="label" style="margin:14px 0 0">Category <span class="tag" style="text-transform:none;letter-spacing:0">(optional, I will guess from the words)</span></p>' +
@@ -1712,6 +1711,7 @@ input[type=file]::file-selector-button{font:inherit;min-height:34px;padding:0 14
   const FORM = {
     quick(f) {
       const input = f.elements.q; const r = C.parseQuick(input.value);
+      if (!r && !input.value.trim() && coarse()) { spendModal(); return; }
       if (!r) { toast('Type an amount first, like “12 coffee”.'); return; }
       // the extra options fold away again after logging; they open when the field is tapped
       const dv = f.elements.date ? f.elements.date.value : '';
@@ -1741,7 +1741,11 @@ input[type=file]::file-selector-button{font:inherit;min-height:34px;padding:0 14
   // the visible area shrinks when the keyboard opens: keep the sheet inside what is actually visible
   const vv = window.visualViewport;
   if (vv) { const fit = () => { const s = document.documentElement.style; s.setProperty('--vvh', vv.height + 'px'); s.setProperty('--vvt', vv.offsetTop + 'px'); }; vv.addEventListener('resize', fit); vv.addEventListener('scroll', fit); fit(); }
-  document.addEventListener('focusin', (e) => { if (e.target && e.target.id === 'quick') { ses.quickOpen = true; const m = $('#quickMore'); if (m) m.hidden = false; } });
+  const coarse = () => !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+  document.addEventListener('focusin', (e) => {
+    // touch screens: the keyboard would cover the form, so tapping the box opens the same sheet as Log spending
+    if (e.target && e.target.id === 'quick' && coarse() && !$('#modalRoot').firstChild) { e.target.blur(); spendModal(); return; }
+    if (e.target && e.target.id === 'quick') { ses.quickOpen = true; const m = $('#quickMore'); if (m) m.hidden = false; } });
   document.addEventListener('mousedown', (e) => {
     ses.downOn = e.target;
     // a tap anywhere else folds the options away again, unless something has been typed
